@@ -1,0 +1,61 @@
+﻿@model IEnumerable<HotelManagmentMVC.Models.RoomViewModel>
+
+@{
+    ViewData["Title"] = "Rooms";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Hotel Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Rooms</h1>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="@Url.Content(item.ImageUrl)" class="card-img-top" alt="@item.RoomType">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.RoomType (@item.RoomID)</h5>
+                            <p class="card-text">
+                                <strong>Capacity:</strong> @item.Capacity <br>
+                                <strong>Price Per Night:</strong> $@item.PricePerNight <br>
+                                <strong>Description:</strong> @item.Description
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

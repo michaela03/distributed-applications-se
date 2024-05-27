@@ -1,0 +1,160 @@
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# Auto-generated files
+*.Generated.cs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Uncomment if you have tasks that create the project file or assembly
+#project.lock.json
+#project.fragment.lock.json
+
+# Temporary files
+tmp/
+tmp.*/
+[Tt]emp/
+
+# Rider
+.idea/
+
+# Rider/VS Code
+.vscode/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Visual Studio 2019/2022
+.vs/
+
+# Mac
+*.DS_Store
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# NPM packages
+node_modules/
+
+# Client-side build output
+wwwroot/dist/
+wwwroot/node_modules/
+wwwroot/lib/
+
+# Merge conflict files
+*.orig
+
+# ASP.NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# StyleCop
+StyleCopReport.xml
+
+# ASP.NET Core SignalR
+*.sazerac
+
+# Azure Functions
+local.settings.json
+
+# Publish directory
+Publish/
+
+# Backup & report files
+*.bak
+*.log
+*.pdb
+*.csv
+*.svclog
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# NUnit
+TestResult.xml
+nunit-*.xml
+
+# MSTest
+TestResults
+
+# Coverage Results
+*.coverage
+*.coveragexml
+
+# Web service references
+Service References/
+
+# Package directories
+**/packages/*
+**/node_modules/*
+**/bower_components/*
+**/jspm_packages/*
+
+# CodeRush
+.cr/persistent/*.xml
+.cr/solutions/*.xml
+
+# Linux/Mac artifacts
+*.swp
+*~
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Local History for Visual Studio
+.history/
+
+# Windows
+*.exe
+*.dll
+*.com
+*.bat
+*.sh
+*.cmd
+*.vbs
+*.swp
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# ASP.NET core MVC specific
+appsettings.json
+appsettings.Development.json
+
+# End of the list of commonly ignored files

@@ -1,0 +1,820 @@
+openapi: 3.0.1
+info:
+  title: HotelManagmentAPI
+  version: '1.0'
+paths:
+  /api/Client/GetClients:
+    get:
+      tags:
+        - Client
+      responses:
+        '200':
+          description: Success
+  /api/Client/GetClient/{clientID}:
+    get:
+      tags:
+        - Client
+      parameters:
+        - name: clientID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Client/GetClientByName/clientName/{clientName}:
+    get:
+      tags:
+        - Client
+      parameters:
+        - name: clientName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/Client/CreateClient:
+    post:
+      tags:
+        - Client
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ClientDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ClientDto'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /api/Client/UpdateClient/{clientID}:
+    put:
+      tags:
+        - Client
+      parameters:
+        - name: clientID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ClientDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ClientDto'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /api/Client/DeleteClient/{clientID}:
+    delete:
+      tags:
+        - Client
+      parameters:
+        - name: clientID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /api/Reservation:
+    get:
+      tags:
+        - Reservation
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - Reservation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ReservationDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ReservationDto'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /api/Reservation/{reservationID}:
+    get:
+      tags:
+        - Reservation
+      parameters:
+        - name: reservationID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Reservation
+      parameters:
+        - name: reservationID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ReservationDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ReservationDto'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /api/Reservation/client/{clientID}:
+    get:
+      tags:
+        - Reservation
+      parameters:
+        - name: clientID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Reservation/{clientID}:
+    delete:
+      tags:
+        - Reservation
+      parameters:
+        - name: reservationID
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: clientID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /api/Review:
+    get:
+      tags:
+        - Review
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewDto'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewDto'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewDto'
+    post:
+      tags:
+        - Review
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ReviewDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ReviewDto'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /api/Review/{reviewID}:
+    get:
+      tags:
+        - Review
+      parameters:
+        - name: reviewID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    put:
+      tags:
+        - Review
+      parameters:
+        - name: reviewID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ReviewDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ReviewDto'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /api/Review/client/{clientID}:
+    get:
+      tags:
+        - Review
+      parameters:
+        - name: clientID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewDto'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewDto'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewDto'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /api/Review/{clientID}:
+    delete:
+      tags:
+        - Review
+      parameters:
+        - name: reviewID
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: clientID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /api/Room:
+    get:
+      tags:
+        - Room
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoomDto'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoomDto'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoomDto'
+  /api/Room/id/{roomID}:
+    get:
+      tags:
+        - Room
+      parameters:
+        - name: roomID
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoomDto'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoomDto'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoomDto'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /api/Room/type/{roomType}:
+    get:
+      tags:
+        - Room
+      parameters:
+        - name: roomType
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoomDto'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoomDto'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoomDto'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+  /WeatherForecast:
+    get:
+      tags:
+        - WeatherForecast
+      operationId: GetWeatherForecast
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeatherForecast'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeatherForecast'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeatherForecast'
+components:
+  schemas:
+    ClientDto:
+      type: object
+      properties:
+        clientID:
+          type: integer
+          format: int32
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        dateOfBirth:
+          type: string
+          format: date-time
+        address:
+          type: string
+          nullable: true
+      additionalProperties: false
+    DateOnly:
+      type: object
+      properties:
+        year:
+          type: integer
+          format: int32
+        month:
+          type: integer
+          format: int32
+        day:
+          type: integer
+          format: int32
+        dayOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        dayOfYear:
+          type: integer
+          format: int32
+          readOnly: true
+        dayNumber:
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
+    DayOfWeek:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      type: integer
+      format: int32
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
+      additionalProperties: {}
+    ReservationDto:
+      type: object
+      properties:
+        reservationID:
+          type: integer
+          format: int32
+        roomID:
+          type: integer
+          format: int32
+        clientID:
+          type: integer
+          format: int32
+        checkIn:
+          type: string
+          format: date-time
+        checkOut:
+          type: string
+          format: date-time
+        totalPrice:
+          type: number
+          format: double
+        reservationStatus:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ReviewDto:
+      type: object
+      properties:
+        reviewID:
+          type: integer
+          format: int32
+        clientID:
+          type: integer
+          format: int32
+        comment:
+          type: string
+          nullable: true
+        rating:
+          type: integer
+          format: int32
+        date:
+          type: string
+          format: date-time
+      additionalProperties: false
+    RoomDto:
+      type: object
+      properties:
+        roomID:
+          type: integer
+          format: int32
+        roomType:
+          type: string
+          nullable: true
+        capacity:
+          type: integer
+          format: int32
+        pricePerNight:
+          type: number
+          format: double
+        description:
+          type: string
+          nullable: true
+      additionalProperties: false
+    WeatherForecast:
+      type: object
+      properties:
+        date:
+          $ref: '#/components/schemas/DateOnly'
+        temperatureC:
+          type: integer
+          format: int32
+        temperatureF:
+          type: integer
+          format: int32
+          readOnly: true
+        summary:
+          type: string
+          nullable: true
+      additionalProperties: false

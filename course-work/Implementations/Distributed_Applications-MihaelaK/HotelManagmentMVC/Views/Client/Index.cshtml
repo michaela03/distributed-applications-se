@@ -1,0 +1,77 @@
+﻿@model IEnumerable<HotelManagmentMVC.Models.ClientViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Clients</h1>
+<form method="get" asp-action="Index" class="mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Въведете име на потребител..." value="@ViewData["ClientController"]" name="searchString" style="width:400px" />
+            <button type="submit" class="btn btn-primary">Търсене</button>
+            <a asp-action="Index" class="btn btn-secondary">Покажи всички потребители</a>
+        </div>
+    </form>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientID)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ClientID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ClientID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ClientID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
